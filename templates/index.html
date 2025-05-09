@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Sentiment Analyzer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding: 20px; max-width: 800px; margin: 0 auto; }
+        .comment-example { margin-bottom: 10px; padding: 10px; border-radius: 5px; }
+        .positive { background-color: #d4edda; }
+        .neutral { background-color: #e2e3e5; }
+        .negative { background-color: #f8d7da; }
+    </style>
+</head>
+<body>
+    <div class="text-center mb-4">
+        <h1>YouTube Sentiment Analyzer</h1>
+        <p class="text-muted">Analyze sentiment for ALL comments on any YouTube video</p>
+    </div>
+
+    <form method="POST" class="mb-5" onsubmit="document.getElementById('analyzeBtn').disabled = true;">
+        <div class="input-group">
+            <input type="url" class="form-control" name="video_url" 
+                   placeholder="https://www.youtube.com/watch?v=..." required>
+            <button class="btn btn-primary" type="submit" id="analyzeBtn">
+                Analyze All Comments
+            </button>
+        </div>
+        <div class="form-text mt-2">
+            Note: This may take several minutes for videos with many comments
+        </div>
+    </form>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
