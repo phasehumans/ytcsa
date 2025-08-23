@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 import time
 from threading import Thread
-import json  # Added this import
+import json  
 import uuid
 
 load_dotenv()
